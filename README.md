@@ -8,6 +8,12 @@ If you are opening a Pull Request, follow the [rules of a good commit message](h
 
 You can contribute in the following ways:
 
+### Testify!
+
+Open a Pull Request or an Issue in which you: 
+- Provide your testimony
+- Provide the name you want to be quoted under
+
 ### Add a sermon
 
 Open a Pull Request or an Issue in which you: 
