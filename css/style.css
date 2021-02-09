@@ -115,6 +115,12 @@ blockquote {
     margin-bottom: 3rem;
 }
 
+@media (max-width: 600px) {
+    blockquote {
+        font-size: 110%;
+    }
+}
+
 blockquote footer {
     font-size: 90%;
     color: #aaa;
@@ -129,6 +135,10 @@ blockquote:before {
     line-height: 0.1em;
     margin-right: 0.1em;
     vertical-align: -0.1em;
+}
+
+#sermons blockquote:before {
+    content: url("../img/dauthead.png");
 }
 
 img {
