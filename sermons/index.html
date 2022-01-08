@@ -39,6 +39,11 @@
 
          <h2>All sermons</h2>
 
+         <div id="filter">
+            <label for="filter-input">Search in <span id="sermons-count"></span> sermons:</label>
+            <input id="filter-input" placeholder="Micro"/>
+         </div>
+
          <blockquote>
             Man, is it hard to get wood or what?
             <footer>- <a href="https://trollabot.herokuapp.com/?stream=daut&view=quotes">DauT</a></footer>
@@ -1121,6 +1126,52 @@
    const sotd = document.getElementById('sotd');
    const index = Math.floor(random() * quotes.length);
    sotd.appendChild(quotes[index].cloneNode(true));
+
+   const updateSermonsCount = () => {
+        let count = 0;
+        let quotes = document.getElementsByTagName('blockquote');
+        for (i = 0; i < quotes.length; i++) {
+            if (quotes[i].style.display != "none") {
+                count++;
+            }
+        }
+        document.getElementById('sermons-count').textContent = count;
+   }
+
+    const normalise = (textContent) => {
+        if(textContent !== undefined) {
+            return textContent.replaceAll(/\s+/g, '').toLowerCase();
+        }
+        return '';
+    }
+
+    const applyFilter = () => {
+        let input, filter, quotes;
+        input = document.getElementById('filter-input');
+        filter = normalise(input.value);
+        quotes = document.getElementsByTagName('blockquote');
+
+        for (i = 0; i < quotes.length; i++) {
+            const normalisedContent = normalise(quotes[i].textContent);
+            if (normalisedContent !== undefined) {
+                if (normalisedContent.indexOf(filter) > -1) {
+                    quotes[i].style.display = "";
+                } else {
+                    quotes[i].style.display = "none";
+                }
+            }
+        }
+        updateSermonsCount();
+    }
+
+    document.getElementById('filter-input').addEventListener('keyup', function (e) {
+        if (e.key === "Escape") {
+            document.getElementById('filter-input').value = '';
+        }
+        applyFilter();
+    });
+
+    applyFilter();
 </script>
 </body>
 </html>

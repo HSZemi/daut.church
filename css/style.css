@@ -175,3 +175,29 @@ img.icon {
 .footer a {
     color: #666;
 }
+
+label {
+    font-size: 100%;
+    margin-right: 1ex;
+}
+
+input {
+    font-size: 100%;
+    font-family: Alegreya, serif;
+    color: white;
+    border-top: none;
+    border-bottom: 2px solid white;
+    border-left: none;
+    border-right: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#filter-input {
+    flex-grow: 1;
+}
